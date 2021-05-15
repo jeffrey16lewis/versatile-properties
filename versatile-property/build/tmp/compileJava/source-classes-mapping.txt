@@ -1,0 +1,6 @@
+com/versatilepropertysolutions/property/PropertyApplication.java
+ com.versatilepropertysolutions.property.PropertyApplication
+com/versatilepropertysolutions/property/controller/PropertyController.java
+ com.versatilepropertysolutions.property.controller.PropertyController
+com/versatilepropertysolutions/property/controller/PropertyEntity.java
+ com.versatilepropertysolutions.property.controller.PropertyEntity
