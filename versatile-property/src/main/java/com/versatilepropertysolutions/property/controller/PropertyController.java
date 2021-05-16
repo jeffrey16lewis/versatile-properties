@@ -1,24 +1,28 @@
 package com.versatilepropertysolutions.property.controller;
 
+import com.versatilepropertysolutions.property.PropertyRepository;
+import com.versatilepropertysolutions.property.model.Property;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class PropertyController {
+    private final PropertyRepository propertyRepository;
 
     @GetMapping("/properties")
-    public List<PropertyEntity> getProperties() {
-        List<PropertyEntity> properties = new ArrayList<>();
-        var property = new PropertyEntity();
-        property.setAddressLine1("105 Blan St.");
-        property.setCity("Columbus");
-        property.setState("GA");
-        property.setZipCode("31907");
+    public List<Property> getProperties() {
+        return propertyRepository.findAll();
+    }
 
-        properties.add(property);
-        return properties;
+    @PostMapping("/create-property")
+    public void createProperty(@RequestBody Property property) {
+        propertyRepository.save(property);
     }
 }

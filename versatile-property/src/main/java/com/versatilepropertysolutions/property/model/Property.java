@@ -1,25 +1,26 @@
 package com.versatilepropertysolutions.property.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Getter
-@Setter
+@Data
+@Entity
 public class Property{
-
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Address address;
-    private int numberOfBeds;
-    private float numberOfBaths;
-    private String homeType;
+    private int numberofbeds;
+    private float numberofbaths;
+    private String hometype;
     private Double price;
-    private Double mortgageZestimate;
-    private Double estimatedMortgage;
-    private Double rentZestimate;
+    private Double mortgagezestimate;
+    private Double estimatedmortgage;
+    private Double rentzestimate;
+    private String addressline1;
+    private String addressline2;
+    private String city;
+    private String state;
+    private String zipcode;
 
 }
